@@ -21,7 +21,10 @@ const TicTacToe = () => {
       <div className='h-full w-full bg-white grid grid-cols-3 grid-rows-3'>
         {board.map((row, rowIndex) =>
           row.map((cell, cellIndex) => (
-            <div className='border flex justify-center items-center'>
+            <div
+              className='border flex justify-center items-center'
+              key={Math.random()}
+            >
               {cell}
             </div>
           ))
