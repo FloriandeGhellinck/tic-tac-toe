@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { updateJsxFragment } from 'typescript';
 
 const TicTacToe = () => {
   const [board, setBoard] = useState<string[][]>([]);
+  const [player, setPlayer] = useState<string>('X');
 
   const resetGame = () => {
     setBoard([
       ['', '', ''],
-      ['', 'X', ''],
-      ['0', '', ''],
+      ['', '', ''],
+      ['', '', ''],
     ]);
   };
 
@@ -15,11 +18,29 @@ const TicTacToe = () => {
     resetGame();
   }, []);
 
+  const updateGame = () => {
+    setPlayer(player === 'X' ? 'O' : 'X');
+  };
+
   const handleCellClick = (
     evt: KeyboardEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>
   ) => {
+    // console.log(evt);
     const { currentTarget } = evt;
-    console.log(currentTarget);
+    // console.log(currentTarget);
+    const { id } = currentTarget;
+    console.log(id);
+
+    const [_, rowIndex, cellIndex] = id.split('-');
+
+    const newBoard = [...board];
+    newBoard[+rowIndex][+cellIndex] = player;
+    // (
+    //   <Image href='../../../public/O_bright.svg' alt='O bright' />
+    // );
+
+    setBoard(newBoard);
+    updateGame();
   };
 
   const renderBoard = () => {
@@ -30,11 +51,23 @@ const TicTacToe = () => {
             const identifier = `cell-${rowIndex}-${cellIndex}`;
             return (
               <div
-                className='border flex justify-center items-center'
+                className='border flex justify-center items-center '
+                id={identifier}
                 key={identifier}
                 onClick={handleCellClick}
+                onKeyDown={handleCellClick}
+                role='button'
+                tabIndex={3 * rowIndex * cellIndex}
               >
-                {cell}
+                {cell !== '' && (
+                  <Image
+                    src={`/images/${cell}_dark.svg`}
+                    alt={`Cell ${identifier}`}
+                    className='h-11/12 w-11/12'
+                    width={1}
+                    height={1}
+                  />
+                )}
               </div>
             );
           })
