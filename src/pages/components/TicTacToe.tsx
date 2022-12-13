@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 const TicTacToe = () => {
   const [board, setBoard] = useState<string[][]>([]);
-  console.table(board);
 
   const resetGame = () => {
     setBoard([
@@ -16,6 +15,13 @@ const TicTacToe = () => {
     resetGame();
   }, []);
 
+  const handleCellClick = (
+    evt: KeyboardEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>
+  ) => {
+    const { currentTarget } = evt;
+    console.log(currentTarget);
+  };
+
   const renderBoard = () => {
     return (
       <div className='h-full w-full bg-white grid grid-cols-3 grid-rows-3'>
@@ -24,6 +30,7 @@ const TicTacToe = () => {
             <div
               className='border flex justify-center items-center'
               key={Math.random()}
+              onClick={handleCellClick}
             >
               {cell}
             </div>
