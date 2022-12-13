@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import React from 'react';
+import TicTacToe from './components/TicTacToe';
 
 export default function Home() {
   return (
@@ -16,9 +18,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className='w-full h-screen bg-black'>
-          <h1 className='text-red-600 underline'> PROJECT IN PROGRESS</h1>
-        </div>
+        <TicTacToe />
       </main>
 
       <footer></footer>
