@@ -210,7 +210,7 @@ const TicTacToe = () => {
       <section className='bg-gray-300 py-16 text-center px-4 md:px-section h-screen flex flex-col justify-center '>
         <h2 className='text-3xl mb-5 font-bold'>Tic Tac Toe</h2>
         <p className='text-xl mb-6'> Welcome to play a game</p>
-        <div className='flex flex-row flex-wrap justify-between items-center w-full px-20'>
+        <div className='flex flex-row flex-wrap justify-between items-center w-full md:px-10 lg:px-20'>
           <div className='hidden : md:block'>{renderPlayerScore('X')}</div>
           <div className='relative mx-0 md:mx-4 w-96 h-96 border-gray-800 mb-10 md:mb-0'>
             {renderStatusOverlay()}
