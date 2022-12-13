@@ -23,7 +23,7 @@ const TicTacToe = () => {
   };
 
   const handleCellClick = (
-    evt: KeyboardEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>
+    evt: React.KeyboardEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>
   ) => {
     // console.log(evt);
     const { currentTarget } = evt;
