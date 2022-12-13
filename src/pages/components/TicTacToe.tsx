@@ -26,15 +26,18 @@ const TicTacToe = () => {
     return (
       <div className='h-full w-full bg-white grid grid-cols-3 grid-rows-3'>
         {board.map((row, rowIndex) =>
-          row.map((cell, cellIndex) => (
-            <div
-              className='border flex justify-center items-center'
-              key={Math.random()}
-              onClick={handleCellClick}
-            >
-              {cell}
-            </div>
-          ))
+          row.map((cell, cellIndex) => {
+            const identifier = `cell-${rowIndex}-${cellIndex}`;
+            return (
+              <div
+                className='border flex justify-center items-center'
+                key={identifier}
+                onClick={handleCellClick}
+              >
+                {cell}
+              </div>
+            );
+          })
         )}
       </div>
     );
