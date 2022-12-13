@@ -159,7 +159,7 @@ const TicTacToe = () => {
     }
 
     return (
-      <div className='absolute inset-0 w-full h-full font-bold text-2xl flex items-center justify-center bg-gray-600'>
+      <div className='absolute inset-0 w-full h-full font-bold text-2xl flex items-center justify-center bg-white'>
         <p className='w-11/12 break-words'>{message}</p>
       </div>
     );
@@ -219,7 +219,7 @@ const TicTacToe = () => {
           <div className='block md:hidden'>{renderPlayerScore('X')}</div>
           <div>{renderPlayerScore('O')}</div>
         </div>
-        <p className='mt-10 text-2xl md:text-3xl'>Time here</p>
+        {/* <p className='mt-10 text-2xl md:text-3xl'>Time here</p> */}
       </section>
     </div>
   );
